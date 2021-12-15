@@ -1,4 +1,4 @@
-package com.example.ptu
+package com.albadevs.ptu
 
 import io.flutter.embedding.android.FlutterActivity
 

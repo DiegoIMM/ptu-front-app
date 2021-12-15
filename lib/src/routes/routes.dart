@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:ptu/src/pages/auth/login_page.dart';
-import 'package:ptu/src/pages/home.dart';
-import 'package:ptu/src/pages/subject_overview.dart';
+import 'package:ptu/src/pages/examen_page.dart';
+import 'package:ptu/src/pages/home_page.dart';
+import 'package:ptu/src/pages/subject_overview_page.dart';
 import 'package:ptu/src/pages/terms_page.dart';
 
 Map<String, WidgetBuilder> getApplicationRoutes() {
   return <String, WidgetBuilder>{
-    '/': (BuildContext context) => Home(),
+    '/': (BuildContext context) => HomePage(),
     // 'profile': (BuildContext context) => ProfilePage(),
     'login': (BuildContext context) => LogInPage(),
-    'subject_overview': (BuildContext context) =>
-        SubjectOverview(argument: ModalRoute.of(context)!.settings.arguments),
+    'subject_overview': (BuildContext context) => SubjectOverviewPage(
+        argument: ModalRoute.of(context)!.settings.arguments),
+    'examen': (BuildContext context) =>
+        ExamenPage(argument: ModalRoute.of(context)!.settings.arguments),
     'terms': (BuildContext context) => TermsPage(),
   };
 }

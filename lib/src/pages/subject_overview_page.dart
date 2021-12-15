@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:ptu/src/pages/widgets/aviable_test.dart';
 
-class SubjectOverview extends StatefulWidget {
+class SubjectOverviewPage extends StatefulWidget {
   final argument;
 
-  SubjectOverview({Key? key, required this.argument}) : super(key: key);
+  SubjectOverviewPage({Key? key, required this.argument}) : super(key: key);
 
   @override
-  State<SubjectOverview> createState() => _SubjectOverviewState();
+  State<SubjectOverviewPage> createState() => _SubjectOverviewPageState();
 }
 
-class _SubjectOverviewState extends State<SubjectOverview>
+class _SubjectOverviewPageState extends State<SubjectOverviewPage>
     with SingleTickerProviderStateMixin {
   late TabController _tabController;
 
@@ -52,15 +53,14 @@ class _SubjectOverviewState extends State<SubjectOverview>
 
   @override
   Widget build(BuildContext context) {
-    final args = ModalRoute.of(context)!.settings.arguments as String;
-
     return DefaultTabController(
       length: 4,
       child: Scaffold(
         appBar: AppBar(
-          title: Text('Cursos'),
+          title: const Text('Cursos'),
           bottom: TabBar(
             controller: _tabController,
+            isScrollable: false,
             tabs: const <Widget>[
               Tab(
                 icon: Icon(Icons.record_voice_over),
@@ -82,19 +82,48 @@ class _SubjectOverviewState extends State<SubjectOverview>
           ),
         ),
         body: TabBarView(
+          physics: const NeverScrollableScrollPhysics(),
           controller: _tabController,
           children: <Widget>[
-            Center(
-              child: Text('Lenguaje'),
+            Column(
+              children: [
+                AviableTest(
+                  title: 'Test rápido',
+                ),
+                AviableTest(
+                  title: 'Test completo',
+                )
+              ],
             ),
-            Center(
-              child: Text('Matemáticas'),
+            Column(
+              children: [
+                AviableTest(
+                  title: 'Test rápido',
+                ),
+                AviableTest(
+                  title: 'Test completo',
+                )
+              ],
             ),
-            Center(
-              child: Text('Historia'),
+            Column(
+              children: [
+                AviableTest(
+                  title: 'Test rápido',
+                ),
+                AviableTest(
+                  title: 'Test completo',
+                )
+              ],
             ),
-            Center(
-              child: Text('Ingles'),
+            Column(
+              children: [
+                AviableTest(
+                  title: 'Test rápido',
+                ),
+                AviableTest(
+                  title: 'Test completo',
+                )
+              ],
             ),
           ],
         ),
@@ -112,7 +141,7 @@ class _SubjectOverviewState extends State<SubjectOverview>
           Navigator.pushNamed(context, '/subject_detail',
               arguments: 'Lenguaje');
         },
-        child: Icon(Icons.play_circle),
+        child: const Icon(Icons.play_circle),
       );
     }
     if (_tabController.index == 1) {
@@ -123,7 +152,7 @@ class _SubjectOverviewState extends State<SubjectOverview>
           Navigator.pushNamed(context, '/subject_detail',
               arguments: 'Matemáticas');
         },
-        child: Icon(Icons.play_circle),
+        child: const Icon(Icons.play_circle),
       );
     }
     if (_tabController.index == 2) {
@@ -134,7 +163,7 @@ class _SubjectOverviewState extends State<SubjectOverview>
           Navigator.pushNamed(context, '/subject_detail',
               arguments: 'Historia');
         },
-        child: Icon(Icons.play_circle),
+        child: const Icon(Icons.play_circle),
       );
     }
     if (_tabController.index == 3) {
@@ -144,7 +173,7 @@ class _SubjectOverviewState extends State<SubjectOverview>
         onPressed: () {
           Navigator.pushNamed(context, '/subject_detail', arguments: 'Ingles');
         },
-        child: Icon(Icons.play_circle),
+        child: const Icon(Icons.play_circle),
       );
     }
     return FloatingActionButton(
@@ -153,7 +182,7 @@ class _SubjectOverviewState extends State<SubjectOverview>
       onPressed: () {
         Navigator.pushNamed(context, '/subject_detail', arguments: 'Lenguaje');
       },
-      child: Icon(Icons.play_circle),
+      child: const Icon(Icons.play_circle),
     );
   }
 }

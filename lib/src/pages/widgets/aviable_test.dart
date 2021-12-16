@@ -24,9 +24,9 @@ class AviableTest extends StatelessWidget {
                   print('tap');
                   Navigator.pushNamed(context, 'examen', arguments: title);
                 },
-                child: Card(
-                  child: Container(
-                      height: 150, width: 200, child: Text('Algebra')),
+                child: const Card(
+                  child: SizedBox(
+                      height: 150, width: 200, child: Text('General')),
                 ),
               ),
               Card(

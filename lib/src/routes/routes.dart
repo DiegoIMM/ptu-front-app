@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ptu/src/pages/auth/auth_layout.dart';
 import 'package:ptu/src/pages/auth/login_page.dart';
 import 'package:ptu/src/pages/examen_page.dart';
 import 'package:ptu/src/pages/home_page.dart';
@@ -9,7 +10,7 @@ Map<String, WidgetBuilder> getApplicationRoutes() {
   return <String, WidgetBuilder>{
     '/': (BuildContext context) => HomePage(),
     // 'profile': (BuildContext context) => ProfilePage(),
-    'login': (BuildContext context) => LogInPage(),
+    'auth': (BuildContext context) => AuthLayout(),
     'subject_overview': (BuildContext context) => SubjectOverviewPage(
         argument: ModalRoute.of(context)!.settings.arguments),
     'examen': (BuildContext context) =>
@@ -20,18 +21,15 @@ Map<String, WidgetBuilder> getApplicationRoutes() {
 
 goLogin(context) {
   Navigator.pushNamedAndRemoveUntil(context, 'login', (route) => false);
-  //Navigator.pushNamed(context, 'login');
+  Navigator.pushNamed(context, 'login');
 }
 
 goHome(context) {
-  Navigator.pushNamedAndRemoveUntil(context, 'HoWeAre', (route) => false);
+  Navigator.pushNamedAndRemoveUntil(context, '/', (route) => false);
   //Navigator.pushNamed(context, 'login');
 }
 
-goSubjects(context) {
-  Navigator.pushNamedAndRemoveUntil(context, 'HoWeAre', (route) => false);
-  //Navigator.pushNamed(context, 'login');
-}
+
 
 goArrears(context) {
   Navigator.pushNamedAndRemoveUntil(context, 'arrears', (route) => false);

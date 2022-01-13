@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:ptu/src/model/login_model.dart';
+import 'package:ptu/src/routes/routes.dart';
 
 class LogInPage extends StatefulWidget {
   @override
@@ -24,14 +25,15 @@ class _LogInPagePageState extends State<LogInPage> {
             width: size.width * 0.85,
             padding: const EdgeInsets.symmetric(vertical: 30.0),
             margin: const EdgeInsets.symmetric(vertical: 15.0),
+
             decoration: BoxDecoration(
-                color: Colors.white,
+                color: Theme.of(context).backgroundColor,
                 borderRadius: BorderRadius.circular(5.0),
-                boxShadow: const [
+                boxShadow: [
                   BoxShadow(
-                      color: Colors.black26,
                       blurRadius: 3.0,
-                      offset: Offset(0.0, 5.0),
+                      color: Theme.of(context).shadowColor,
+                      offset: const Offset(0.0, 5.0),
                       spreadRadius: 3.0)
                 ]),
             child: Column(
@@ -159,6 +161,7 @@ class _LogInPagePageState extends State<LogInPage> {
   }
 
   void _userLogIn(context) {
+    goHome(context);
     // if (logInKey.currentState!.validate()) {
     //   logInKey.currentState!.save();
     //   AuthService.logIn(logIn)

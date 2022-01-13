@@ -15,7 +15,9 @@ class AviableTest extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Text(title),
+          Text(title,
+              style:
+                  const TextStyle(fontWeight: FontWeight.bold, fontSize: 30)),
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: Row(children: [
@@ -24,9 +26,13 @@ class AviableTest extends StatelessWidget {
                   print('tap');
                   Navigator.pushNamed(context, 'examen', arguments: title);
                 },
-                child: const Card(
-                  child: SizedBox(
-                      height: 150, width: 200, child: Text('General')),
+                child: const SizedBox(
+                  height: 200,
+                  width: 200,
+                  child: Padding(
+                    padding: EdgeInsets.all(14.0),
+                    child: Card(elevation: 8, child: Text('General'),),
+                  ),
                 ),
               ),
               Card(

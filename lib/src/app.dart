@@ -91,12 +91,55 @@ class _PtuState extends State<Ptu> {
           key: homeAux,
           debugShowCheckedModeBanner: false,
           routes: getApplicationRoutes(),
-          initialRoute: '/',
+          initialRoute: 'auth',
           // initialRoute: _autenticated ? 'justification' : 'justification',
-          // home: HomePage(), //this is the calling screen
-          // onGenerateRoute: (RouteSettings settings) =>
-          // MaterialPageRoute(builder: (BuildContext context) => HomePage()),
-          theme: ThemeData(primaryColor: Colors.green));
+          theme: ThemeData(
+              brightness: Brightness.light,
+              colorScheme: ColorScheme.light(
+                  primary: Colors.blue.shade800,
+                  background: Colors.red,
+                  brightness: Brightness.light,
+                  onBackground: Colors.white,
+                  error: Colors.red,
+                  primaryVariant: Colors.green,
+                  secondaryVariant: Colors.greenAccent,
+                  secondary: Colors.yellow,
+                  surface: Colors.blue.shade800,
+                  onError: Colors.red,
+                  onPrimary: Colors.white,
+                  onSecondary: Colors.red,
+                  onSurface: Colors.red),
+              backgroundColor: Colors.white,
+              scaffoldBackgroundColor: Colors.white,
+              shadowColor: Colors.grey.shade400,
+
+              textTheme: const TextTheme(
+                  bodyText1: TextStyle(color: Colors.black),
+                  caption: TextStyle(color: Colors.grey))),
+          darkTheme: ThemeData(
+              brightness: Brightness.dark,
+              colorScheme: ColorScheme.dark(
+                  primary: Colors.blue.shade800,
+                  background: Colors.yellowAccent,
+                  brightness: Brightness.dark,
+                  onBackground: Colors.grey,
+                  error: Colors.red,
+                  primaryVariant: Colors.green,
+                  secondaryVariant: Colors.greenAccent,
+                  secondary: Colors.yellow,
+                  surface: Colors.blue.shade800,
+                  onError: Colors.red,
+                  onPrimary: Colors.white,
+                  onSecondary: Colors.yellow,
+                  onSurface: Colors.white),
+              backgroundColor: Colors.grey.shade800,
+              scaffoldBackgroundColor: Colors.grey.shade800,
+              cardColor: Colors.black45,
+              shadowColor: Colors.black54,
+              textTheme: const TextTheme(
+                  bodyText1: TextStyle(color: Colors.white),
+                  caption: TextStyle(color: Colors.grey))),
+          themeMode: ThemeMode.system);
     }
     return SomethingWentWrong(context);
   }

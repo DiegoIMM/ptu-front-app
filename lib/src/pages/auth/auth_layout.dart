@@ -23,7 +23,7 @@ class AuthLayout extends StatelessWidget {
               Tab(icon: Icon(Icons.assignment), text: 'Crear cuenta'),
             ],
           ),
-          title: const Text('Contador aforo'),
+          title: const Text('PTU'),
         ),
         body: TabBarView(
           children: [

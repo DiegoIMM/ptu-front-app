@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ptu/src/pages/widgets/subjects_cards.dart';
+import 'package:ptu/src/pages/widgets/subjects_card.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -10,31 +10,41 @@ class HomePage extends StatelessWidget {
         appBar: AppBar(
           title: const Text('PTU'),
         ),
-        body: SingleChildScrollView(
+        body: SafeArea(
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Row(children: [
-                  SubjectsCards(
-                      subjectName: 'Lenguaje',
-                      subjectIcon: Icons.record_voice_over,
-                      subjectColor: Colors.red),
-                  SubjectsCards(
-                      subjectName: 'Matemáticas',
-                      subjectIcon: Icons.add,
-                      subjectColor: Colors.green),
-                ]),
-                Row(children: [
-                  SubjectsCards(
-                      subjectName: 'Historia',
-                      subjectIcon: Icons.account_balance,
-                      subjectColor: Colors.blue),
-                  SubjectsCards(
-                      subjectName: 'Ingles',
-                      subjectIcon: Icons.language,
-                      subjectColor: Colors.purple),
-                ]),
+                Column(
+                  children: [
+                    Row(children: [
+                      SubjectsCard(
+                          subjectName: 'Lenguaje',
+                          subjectIcon: Icons.record_voice_over,
+                          subjectColor: Colors.red),
+                      SubjectsCard(
+                          subjectName: 'Matemáticas',
+                          subjectIcon: Icons.add,
+                          subjectColor: Colors.green),
+                    ]),
+                    Row(children: [
+                      SubjectsCard(
+                          subjectName: 'Historia',
+                          subjectIcon: Icons.account_balance,
+                          subjectColor: Colors.blue),
+                      SubjectsCard(
+                          subjectName: 'Ingles',
+                          subjectIcon: Icons.language,
+                          subjectColor: Colors.purple),
+                    ]),
+                  ],
+                ),
+                const Center(
+                  child: Placeholder(
+                    fallbackHeight: 80,
+                  ),
+                )
               ],
             ),
           ),

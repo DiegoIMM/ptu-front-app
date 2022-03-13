@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class SubjectsCards extends StatelessWidget {
+class SubjectsCard extends StatelessWidget {
   String subjectName;
   IconData subjectIcon;
   MaterialColor subjectColor;
 
-  SubjectsCards({
+  SubjectsCard({
     Key? key,
     required this.subjectName,
     required this.subjectIcon,

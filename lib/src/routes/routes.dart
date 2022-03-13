@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ptu/src/pages/area_or_hability_detail_page.dart';
 import 'package:ptu/src/pages/auth/auth_layout.dart';
 import 'package:ptu/src/pages/auth/login_page.dart';
 import 'package:ptu/src/pages/examen_page.dart';
@@ -12,6 +13,8 @@ Map<String, WidgetBuilder> getApplicationRoutes() {
     // 'profile': (BuildContext context) => ProfilePage(),
     'auth': (BuildContext context) => AuthLayout(),
     'subject_overview': (BuildContext context) => SubjectOverviewPage(
+        argument: ModalRoute.of(context)!.settings.arguments),
+    'area_or_hability_detail': (BuildContext context) => AreaOrHabilityDetailPage(
         argument: ModalRoute.of(context)!.settings.arguments),
     'examen': (BuildContext context) =>
         ExamenPage(argument: ModalRoute.of(context)!.settings.arguments),

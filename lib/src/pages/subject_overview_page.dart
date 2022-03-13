@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:ptu/src/pages/widgets/aviable_test.dart';
+import 'package:ptu/src/pages/widgets/area_or_hability_cards.dart';
+import 'package:ptu/src/pages/widgets/aviable_test_cards.dart';
 
 class SubjectOverviewPage extends StatefulWidget {
   final argument;
@@ -34,6 +35,22 @@ class _SubjectOverviewPageState extends State<SubjectOverviewPage>
     return 0;
   }
 
+  String getImage() {
+    if (_tabController.index == 0) {
+      return 'https://images.unsplash.com/reserve/uZYSV4nuQeyq64azfVIn_15130980706_64134efc6e_o.jpg?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1734&q=80';
+    }
+    if (_tabController.index == 1) {
+      return 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80';
+    }
+    if (_tabController.index == 2) {
+      return 'https://images.unsplash.com/photo-1447069387593-a5de0862481e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1738&q=80';
+    }
+    if (_tabController.index == 3) {
+      return 'https://images.unsplash.com/photo-1565022536102-f7645c84354a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1746&q=80';
+    }
+    return 'https://images.unsplash.com/reserve/uZYSV4nuQeyq64azfVIn_15130980706_64134efc6e_o.jpg?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1734&q=80';
+  }
+
   @override
   void initState() {
     var args = widget.argument;
@@ -56,7 +73,7 @@ class _SubjectOverviewPageState extends State<SubjectOverviewPage>
     return DefaultTabController(
       length: 4,
       child: Scaffold(
-       /* appBar: AppBar(
+        /* appBar: AppBar(
           title: const Text('Cursos'),
           bottom: TabBar(
             controller: _tabController,
@@ -90,16 +107,23 @@ class _SubjectOverviewPageState extends State<SubjectOverviewPage>
                 pinned: true,
                 stretch: true,
                 flexibleSpace: FlexibleSpaceBar(
-                    centerTitle: true,
-                    title: const Text("Cursos"),
-                    background: Image.network(
-                      "https://images.pexels.com/photos/396547/pexels-photo-396547.jpeg?auto=compress&cs=tinysrgb&h=350",
-                      fit: BoxFit.cover,
-                    ),stretchModes: const [
-                  StretchMode.fadeTitle,
-                  StretchMode.blurBackground,
-                  StretchMode.zoomBackground,
-                ],),
+                  centerTitle: true,
+                  collapseMode: CollapseMode.parallax,
+                  title: const Text(
+                    "Cursos",
+                    style: TextStyle(
+                        shadows: [Shadow(color: Colors.black, blurRadius: 20)]),
+                  ),
+                  background: Image.network(
+                    getImage(),
+                    fit: BoxFit.cover,
+                  ),
+                  stretchModes: const [
+                    StretchMode.fadeTitle,
+                    StretchMode.blurBackground,
+                    StretchMode.zoomBackground,
+                  ],
+                ),
               ),
               SliverPersistentHeader(
                 floating: false,
@@ -110,8 +134,9 @@ class _SubjectOverviewPageState extends State<SubjectOverviewPage>
                     // labelColor: Colors.black87,
                     // unselectedLabelColor: Colors.grey,
                     labelColor: Theme.of(context).textTheme.bodyText1!.color,
-                    unselectedLabelColor: Theme.of(context).textTheme.caption!.color,
-                    tabs:const [
+                    unselectedLabelColor:
+                        Theme.of(context).textTheme.caption!.color,
+                    tabs: const [
                       Tab(
                         icon: Icon(Icons.record_voice_over),
                         text: 'Lenguaje',
@@ -135,51 +160,65 @@ class _SubjectOverviewPageState extends State<SubjectOverviewPage>
               ),
             ];
           },
-          body: TabBarView(
-            physics: const NeverScrollableScrollPhysics(),
-            controller: _tabController,
-            children: <Widget>[
-              Column(
-                children: [
-                  AviableTest(
-                    title: 'Test rápido',
-                  ),
-                  AviableTest(
-                    title: 'Test completo',
-                  )
-                ],
-              ),
-              Column(
-                children: [
-                  AviableTest(
-                    title: 'Test rápido',
-                  ),
-                  AviableTest(
-                    title: 'Test completo',
-                  )
-                ],
-              ),
-              Column(
-                children: [
-                  AviableTest(
-                    title: 'Test rápido',
-                  ),
-                  AviableTest(
-                    title: 'Test completo',
-                  )
-                ],
-              ),
-              Column(
-                children: [
-                  AviableTest(
-                    title: 'Test rápido',
-                  ),
-                  AviableTest(
-                    title: 'Test completo',
-                  )
-                ],
-              ),
-            ],
+          body: SafeArea(
+            child: TabBarView(
+              physics: const NeverScrollableScrollPhysics(),
+              controller: _tabController,
+              children: <Widget>[
+                ListView(
+                  children: [
+                    const Placeholder(
+                      fallbackHeight: 200,
+                    ),
+                    AviableTestCards(
+                      title: 'Test disponibles',
+                    ),
+                    AreaOrHabilityCards(
+                      title: 'Categorías',
+                    )
+                  ],
+                ),
+                ListView(
+                  children: [
+                    const Placeholder(
+                      fallbackHeight: 200,
+                    ),
+                    AviableTestCards(
+                      title: 'Test disponibles',
+                    ),
+                    AreaOrHabilityCards(
+                      title: 'Categorías',
+                    ),
+                  ],
+                ),
+                ListView(
+                  children: [
+                    const Placeholder(
+                      fallbackHeight: 200,
+                    ),
+                    AviableTestCards(
+                      title: 'Test disponibles',
+                    ),
+                    AreaOrHabilityCards(
+                      title: 'Categorías',
+                    ),
+                  ],
+                ),
+                ListView(
+                  children: [
+                    const Placeholder(
+                      fallbackHeight: 200,
+                    ),
+                    AviableTestCards(
+                      title: 'Test disponibles',
+                    ),
+                    AreaOrHabilityCards(
+                      title: 'Categorías',
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
         floatingActionButton: _bottomButtons(),

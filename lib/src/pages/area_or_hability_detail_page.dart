@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ptu/src/pages/widgets/aviable_test_cards.dart';
+import 'package:ptu/src/pages/widgets/ordinal_bar_line_combo_chart.dart';
 
 class AreaOrHabilityDetailPage extends StatefulWidget {
   final argument;
@@ -21,9 +22,8 @@ class _AreaOrHabilityDetailPageState extends State<AreaOrHabilityDetailPage> {
       ),
       body: ListView(
         children: [
-          const Placeholder(
-            fallbackHeight: 200,
-          ),
+          SizedBox(
+              height: 400, child: OrdinalBarLineComboChart.withSampleData()),
           AviableTestCards(
             title: 'Test disponibles',
           ),
